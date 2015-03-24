@@ -1,37 +1,25 @@
-abstract class NeuralNet
-extends 	
+abstract class NeuralNet{
 
-java.lang.Object
+//Actives--------------------------------------
 
-instantiated by 	can't be instantiated
-constructors 	none
-methods 	boolean displayNow ()
-Indicates, whether the net should be drawn or not, depending on its display step. True, if the net should be drawn. False otherwise.
+	/*Indicates, whether the net should be drawn or not, depending on its display step.  
+	True, if the net should be drawn. False otherwise.*/ 
+	boolean displayNow (){ }  
 
-boolean finishedLearning ()
-Indicates that the net has finished learning. True, if the learning process is finished. False otherwise.
+	//Indicates that the net has finished learning. True, if the learning process is finished. False otherwise.
+	boolean finishedLearning (){ }
 
-String getElapsedTime ()
-Returns the elapsed learning time of a neural net.
+//Getters and Setters--------------------------
 
-int getLearningCycle ()
-Returns the current learning cycle of a neural net.
+	String getElapsedTime (){ } 
+	int getLearningCycle (){ } 
+	double getLearningRate (){ } 
+	int getMaxLearningCycles (){ } 
+	void resetTime (){ } 
+	void setDisplayStep ( int displayStep ){ } 
 
-double getLearningRate ()
-Returns the current learning rate of a neural net.
+	//Sets the learning rate of a neural net. 
+	void setLearningRate ( double learningRate ){ } 
+	void setMaxLearningCycles ( int maxLearningCycles ){ }
 
-int getMaxLearningCycles ()
-Returns the number of maximum learning cycles of a neural net.
-
-void resetTime ()
-Resets the net's learning time.
-
-void setDisplayStep ( int displayStep )
-Sets a value that indicates the interval to display the net.
-
-void setLearningRate ( double learningRate )
-Sets the learning rate of a neural net.
-
-void setMaxLearningCycles ( int maxLearningCycles )
-Sets the number of learning cycles, the net shall perform.
-If -1, the net has no maximum cycle. 
+}  

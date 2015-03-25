@@ -1,12 +1,18 @@
 public class NeuronLayer{
 
-	float[]
+	float[] layerError (){}
+	float[] output (){}
+	InputValue input;
+	Pattern input;
+	int size;
+
 	public NeuronLayer(){}
 
 
 //Actives----------------------------------------------
 
-	//Computes the output error values of all neurons in a layer by comparing the output with a target pattern.
+	/*Computes the output error values of all neurons 
+	in a layer by comparing the output with a target pattern.*/
 	void computeLayerError ( Pattern pattern )
 
 	//Computes the output values of all neurons in a layer.

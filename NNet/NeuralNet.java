@@ -2,7 +2,8 @@ abstract class NeuralNet{
 
 //Actives--------------------------------------
 
-	/*Indicates, whether the net should be drawn or not, depending on its display step.  
+	/*Indicates, whether the net should be drawn or not, 
+	depending on its display step.  
 	True, if the net should be drawn. False otherwise.*/ 
 	boolean displayNow (){ }  
 

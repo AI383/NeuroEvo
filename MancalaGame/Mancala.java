@@ -1,0 +1,7 @@
+class Mancala {
+
+  public Mancala() {
+
+  }
+    
+}

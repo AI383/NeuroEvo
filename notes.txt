@@ -1,3 +1,49 @@
->> This will serve as a central repository for all notes regarding neuroevolution
+> This will serve as a central repository for all notes regarding neuroevolution
 
-# 
+# Neuroevolution (http://www.scholarpedia.org/article/Neuroevolution) 
+
+## Basic Algorithms
+
+### Terminology
+> Genotype - encoding of a population member
+> Phenotype - encoding of a neural network
+
+### Neuroevolution Algorithm
+1. Each genotype is mapped to a phenotype
+2. These phenotypes are then employed in a task
+3. After which performance is then measured
+4. This performance then signifies a Fitness
+5. After all members are evaluated, genetic operators produce next population
+
+## Neural Network Encodings
+
+### Conventional Neuroevolution Approach (CNE) 
+> Encoding formed by concatenating the numerical values	for the network weights
+> Allows the evolution to optimize the weights of a fixed neural network architecture
+
+### CNE Downsides 
+> Can converge to local phenomena 
+> Requires experimenters to choose an appropiately sized and structured network topology
+> Scales poorly to more difficult problems because the number of parameters to be evolved grows linearly or quadratically in the size of the network
+
+### Solution Components Approach (SC)
+> Instead of population of complete neural networks, a population of network fragments, neurons, or connection weights are evolved 
+> Each individual is evaluated as one part of a full network 
+> Its fitness reflects how well it cooperates with other individuals in the particular solution 
+> ADVANTAGE: complex problem is broken into several smaller subproblems
+
+### Topology Evolution Approach (TE)
+> Choosing an appropiate topology is difficult
+>> yet has a large effect on the experimental outcome 
+> Evolving topologies can achieve better performance than evolving weights only
+
+### Direct Encoding
+> CNE, SC, TE
+> Each part of the encoding corresponds to one part of the network, and vice versa
+
+### Indirect Encoding
+> Specifies a process through which the network is constructed
+>> examples: cell division, spatial embedding, or generation through expanding grammatical rules
+> can be highly compact (i.e. a large number of connections can be encoded with few parameters) 
+> takes advantage of modular solutions
+>> Modularity implies that the same structures can be repeated with minor modifications

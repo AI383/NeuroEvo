@@ -7,6 +7,23 @@
 ### Terminology
 > Genotype - encoding of a population member
 > Phenotype - encoding of a neural network
+> Neuroevolution -  is a machine learning technique that applies evolutionary algorithms to construct artificial neural networks, taking inspiration from the evolution of biological nervous systems in nature
+
+### Differences to other NN learning methods
+> highly general
+> allows learning without explicit targets
+> only sparse feedback
+> allows arbitrary neural models and network structures
+> Allows learning even when correct output may not be known
+
+### Common Artificial Neural Network 
+> Operate through supervised learning
+> Depend upon a set of input-output pairs  
+
+### Neuroevolution uses
+> reinforcement learning
+> evolutionary robotics
+> artificial life
 
 ### Neuroevolution Algorithm
 1. Each genotype is mapped to a phenotype
@@ -47,3 +64,26 @@
 > can be highly compact (i.e. a large number of connections can be encoded with few parameters) 
 > takes advantage of modular solutions
 >> Modularity implies that the same structures can be repeated with minor modifications
+
+## Open Research Challenges
+> creating effective and scalable indirect encodings
+> understanding and synthesizing the evolutionary pressures leading to high-level intelligence 
+> scaling neuroevolution to evolve cognitive behaviors 
+>> examples: multimodal behavior, communication, and lifetime learning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

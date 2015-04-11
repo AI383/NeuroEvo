@@ -1,7 +1,27 @@
 public class BackpropagationNet extends NeuralNet{
 
-public BackpropagationNet ()
+	private float minimumError;
+	private double accuracy;
+	private double error;
+	private double minError;
+	private int layers_count;
+	private int neurons_count;
+	private int patterns_count;
+	private int weights_count;
 
+	/*Returns the weight values of weight matrix matrixNr.
+	The values for matrixNr start with zero!*/
+	float[][] getWeightValues ( int matrixNr )
+
+	//Sets an accuracy value for the net, which is something like a "fuzzy border" 
+	//for output/recall purposes (default is 0.2).
+	void setAccuracy ( double accuracy )
+	void setMinimumError ( float minimumError )
+	private int RES = 1000;
+	float[][] weightValues = new float[RES][RES];
+
+	public BackpropagationNet (){
+	}
 
 //Actives----------------------------------------------
 
@@ -48,7 +68,6 @@ public BackpropagationNet ()
 	//Sets an accuracy value for the net, which is something like a "fuzzy border" 
 	//for output/recall purposes (default is 0.2).
 	void setAccuracy ( double accuracy )
-
 	void setMinimumError ( float minimumError )
 
 

@@ -8,6 +8,7 @@ public class Neuron{
 	}	
 
 //Actives----------------------------------------------
+
 	void activateSigmoid (){}
 	//Performs a sigmoid activation on a neuron's input and computes its output.
 
@@ -16,6 +17,7 @@ public class Neuron{
 	//by comparing the neuron's current output with the targetValue.
 
 //Getters---------------------------------------
+
 	float getInput(){return input}
 	float getOutput(){return output}
 	float getError(){return error}

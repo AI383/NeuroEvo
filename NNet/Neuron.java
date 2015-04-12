@@ -11,7 +11,7 @@ public class Neuron{
 	public Neuron(int numInputs){
 		Random r = new Random();
 		weightMatrix = new double[numInputs];
-		for (int i=0; i<numInputs; i++){
+		for (int i=0; i<numInputs+1; i++){
 			weightMatrix[i] = r.nextDouble();
 		}
 	}	

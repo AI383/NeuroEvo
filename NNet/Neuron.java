@@ -19,30 +19,17 @@ public class Neuron{
 //Actives----------------------------------------------
 
 	//logit, log(p/(1-p)) for sigmoid normalization
-	double activateSigmoid (double p){
-		return Math.log(p/(1-p));
-	}
-
-	//putting a new input into the matrix
-	void setInput(int index, double input){
-		weightMatrix[index] = input;
-	}
-	
-	//getting the size of the matrix
-	int getSize(){
-		return weightMatrix.length;
-	}
-	
-	double[] getWeightMatrix(){
-		return weightMatrix;
-	}
+	double activateSigmoid (double p){return Math.log(p/(1-p));}
+	void setInput(int index, double input){weightMatrix[index] = input;}
+	int numInputs(){return weightMatrix.length;}
+	double[] getInputs(){return weightMatrix;}
 
 	//getting the output of the neuron
 	double getOutput(){
-		for (int i=0; i<getSize(); i++){
+		for (int i=0; i<numInputs(); i++){
 			output += weightMatrix[i];
 		} 
-		output = output / getSize();
+		output = output / numInputs();
 		return output;
 	}
 }

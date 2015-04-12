@@ -6,16 +6,21 @@ class NeuralNet{
 	private int numOutputs;
 	private int numLayers;
 	private int neuPerLayer;
-	private ArrayList<NeuronLayer> layers;
+	private NeuronLayer[] layers;
 
 //Construct------------------------------------
 
-	public NeuralNet(int inputs, int outputs, int numLayers, int neuPerLayer){
-		this.numInputs = inputs;
-		this.numOutputs = outputs;
-		this.numLayers = numLayers;
-		this.neuPerLayer = neuPerLayer;
-		ArrayList<NeuronLayer> layers = new ArrayList<NeuronLayer>();
+	public NeuralNet(int in, int out, int lay, int neu){
+		numInputs = in;
+		numOutputs = out;
+		
+		//populating the NNet
+		numLayers = lay;
+		neuPerLayer = neu;
+		layers = new NeuronLayer[numLayers];
+		for(int i=0; i<numLayers; i++){
+			layers[i] = new NeuronLayer(neuPerLayer, numInputs);
+		}
 	}
 
 //Actives--------------------------------------
@@ -40,18 +45,18 @@ class NeuralNet{
 		   	weight = 0;
 
 		   	//for each neuron in the layer at hand, 
-		    for (int j=0; j<layers.get(i).getSize(); j++){
+		    for (int j=0; j<layers[i].numNeurons()-1; j++){
 
 				netinput = 0;
-				numInputs = layers.get(i).neurons[j].getSize();
+				numInputs = layers[i].neurons[j].numInputs();
 
 				//for each weight in the weight matrix of the neuron at hand, add the inputs to the net input
 				for (int k=0; k<numInputs - 2; k++){
-					netinput += layers.get(i).neurons[j].weightMatrix[k] * inputs[weight++];	
+					netinput += layers[i].neurons[j].weightMatrix[k] * inputs[weight++];	
 				}
 
 				//add the bias to the netinput.
-				//netinput += layers.get(i).neurons[j].weightMatrix[numInputs-1] * CParams::dBias;
+				netinput += layers[i].neurons[j].weightMatrix[numInputs-1];// * CParams::dBias;
 				
 				//put the normalized version of the activation result into the output array
 				//outputs.push_back(Sigmoid(netinput, CParams::dActivationResponse));

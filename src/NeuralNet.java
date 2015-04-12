@@ -33,7 +33,7 @@ class NeuralNet{
 		int weight = 0;
 		double netinput;
 		
-		//if the length of the input array, reject.y is different from the preset number of input
+		//if the length of the input array is different from the preset number of input, reject
 	  	if (inputs.length != numInputs)
 	  		return outputs;
 	

@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,36 +11,44 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 
-public class DisplayPanel extends JPanel implements ActionListener{
+public class DisplayPanel extends JPanel implements Runnable, ActionListener{
 				
 	static ArrayList<String> str;
 	int iter = 0;
 	int offset = 0;
 	int graphOffset = 0;
 	int index=0;
+	
+	ArrayList<Thread> threadArray;
+	
 	NeuralNet n;
 	
 	DisplayPanel(){
 		JButton StartButton = new JButton("Start");
 		StartButton.addActionListener(this);
-		add(StartButton,BorderLayout.WEST);
+		add(StartButton,FlowLayout.LEFT);
 		
 		str = new ArrayList<String>();
 	}
 
-	public void paintComponent(Graphics g){
+	public synchronized void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
 		
+		offset=0;//for full screen refresh, else uncomment below for scroll
+		
 		//printing out the neurons
 		for(int i=index; i<str.size(); i++){
-			if(14*(offset)+40 > this.getSize().height){
-				index++;
-			}
+//			if(14*(offset)+40 > this.getSize().height){
+//				index++;
+//				offset=0;
+//			}
+			index++;
 			g.drawString(str.get(i), 5, 14*offset+40);
 			offset++;
 		}
 		offset=0;
+		
 		//printing out the weights
 		if(n!=null)
 		for(int i=0; i<n.numLayers; i++){
@@ -68,14 +77,21 @@ public class DisplayPanel extends JPanel implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		iter++;
+		Thread t = new Thread(this);
+		t.start();
+	}
+    
+	@Override
+	public void run() {
+	    iter++;
+	    repaint();
 		str.add(iter+": "+"Hello");
 		
 		n = new NeuralNet(2, 1, 5, 7);
 		
 		double[] a = {1};
 		for(int i=0; i<100; i++){
-			repaint();
+			//repaint();
 			n.update(a);
 		}
 	}

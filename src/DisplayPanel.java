@@ -27,7 +27,6 @@ public class DisplayPanel extends JPanel implements Runnable, ActionListener{
 		JButton StartButton = new JButton("Start");
 		StartButton.addActionListener(this);
 		add(StartButton,FlowLayout.LEFT);
-		
 		str = new ArrayList<String>();
 	}
 
@@ -87,7 +86,7 @@ public class DisplayPanel extends JPanel implements Runnable, ActionListener{
 	    repaint();
 		str.add(iter+": "+"Hello");
 		
-		n = new NeuralNet(2, 1, 5, 7);
+		n = new NeuralNet(4, 1, 5, 7);
 		
 		double[] a = {1};
 		for(int i=0; i<100; i++){

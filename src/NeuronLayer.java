@@ -33,5 +33,5 @@ public class NeuronLayer{
 	
 	int numNeurons(){return numNeurons;}
 	int getNumInputsPerNeuron(){return numInputsPerNeuron;}
-	Neuron[] getNeurons(){return neurons;}
+	public Neuron[] getNeurons(){return neurons;}
 } 	

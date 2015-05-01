@@ -11,7 +11,7 @@ public class GA {
     	
         while (fit < 10000000) {
         	gen++;
-            pop.selection(pop);
+            pop.selection();
             pop.crossover();
             pop.mutation();
             pop.populate();

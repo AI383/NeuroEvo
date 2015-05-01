@@ -6,6 +6,7 @@ class NeuralNet{
 	 int numOutputs;
 	 int numLayers;
 	 int neuPerLayer;
+	 int winLossMargin;
 	 NeuronLayer[] layers;
 
 //Construct------------------------------------
@@ -25,6 +26,16 @@ class NeuralNet{
 		}
 	}
 
+	/**
+	 * This function will return the NeuronLayers
+	 */
+	public NeuronLayer[] getLayer() { return layers; }
+
+	public void setMargin(int n) { winLossMargin = n; }
+
+	public void getFitness() { return winLossMargin; }
+
+	public int getNumLayers() { return layers.length; }
 //Actives--------------------------------------
 	
 	//the main thinking process for the neural net, this updates the whole system.

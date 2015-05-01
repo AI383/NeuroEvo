@@ -8,9 +8,9 @@ public class PopNN {
     private static final int selectRate = 5;
     private static final int mutationFactor = 10;
 
-    public PopNN(int size) {
-    	pop = new NeuralNet[size];
-    	fitPop = new NeuralNet[selectRate];
+    public PopNN() {
+    	pop = new NeuralNet[40];
+    	fitPop = new NeuralNet[20];
     }
 
     public NeuralNet getNum(int num) { return pop[num]; }
@@ -25,10 +25,13 @@ public class PopNN {
     }
 
     /**
-	 * This function will select an arbitrary number of successful neural networks. 
+	 * This function will select the top 20 fittest members.  
 	 */ 
-    public void selection(NeuralNet n) {
-
+    public void selection() {
+        getFittest();
+        for (int i = 0; i < 20; i++) { 
+            fitPop[i] = pop[i]; 
+        }
     }
 
     /**
@@ -42,13 +45,40 @@ public class PopNN {
      * This function will crossover neural networks to produce offspring
      */ 
     public void crossover() {
+            
+            for (int i = 0; i < fitPop[0].getNumLayers(); i++) { 
+                for (int j = 0; j < fitPop[0].layers[0].numNeurons(); j++) {
+                    int[] mask = getMask(); 
+                    for (int k = 0; k < fitPop[0].layers[0].neurons[0].weightMatrix.length; k++) {
 
+                    }   
+                }
+            }
     }
 
     /**
      * This function will sort the population to determine the fittest.
      */
     public void getFittest() {
+        int n = pop.length; 
+        while (n != 0) 
+        {
+            int newn = 0; 
+            for(int i = 1; i <= n-1; i++) {
+                if(pop[i-1].getFitness() < pop[i].getFitness()) {
+                    swap(i-1,i);
+                    newn=i;
+                }
+            }
+            n = newn;   
+        }
+    }
 
+    public int[] getMask(int n) {
+        int[] mask = new int[n]; 
+        for(int i=0; i<n; i++) {
+            if(Math.random() > .5) mask[i] = 1; 
+            else mask[i] = 0; 
+        }
     }
 }

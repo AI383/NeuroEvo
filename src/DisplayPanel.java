@@ -53,12 +53,12 @@ public class DisplayPanel extends JPanel implements Runnable, ActionListener{
 		for(int i=0; i<n.numLayers; i++){
 			g.drawString("Layer"+(i+1), 300+(i*80), 14*graphOffset+40);
 			graphOffset++;
-			for(int j=0; j<n.layers[0].numNeurons; j++){
+			for(int j=0; j<n.layers[i].numNeurons; j++){
 				
 				g.setColor(Color.BLUE);
 				g.drawString("   Neu"+(j+1), 300+(i*80), 14*graphOffset+40);
 				graphOffset++;
-				for(int k=0; k<n.layers[0].neurons[0].numInputs(); k++){
+				for(int k=0; k<n.layers[i].neurons[j].numInputs(); k++){
 					DecimalFormat df = new DecimalFormat("#.##");
 					String printValue = df.format(n.layers[i].neurons[j].weightMatrix[k]);
 					g.setColor(Color.BLACK);

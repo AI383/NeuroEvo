@@ -7,9 +7,9 @@ public class NeuronLayer{
 
 //Construct--------------------------------------------
 
-	public NeuronLayer(int n, int m){
-		numNeurons = n;
-		numInputsPerNeuron = m;
+	public NeuronLayer(int neurons, int inputsPerNeuron){
+		numNeurons = neurons;
+		numInputsPerNeuron = inputsPerNeuron;
 		
 		//populating the layer
 		neurons = new Neuron[numNeurons];
@@ -24,7 +24,7 @@ public class NeuronLayer{
 	double computeOutput (){
 		for (int i=0; i<numNeurons(); i++){
 			output += neurons[i].getOutput();
-		} 
+		}
 		output = output / numNeurons();
 		return output;
 	}
@@ -34,4 +34,4 @@ public class NeuronLayer{
 	int numNeurons(){return numNeurons;}
 	int getNumInputsPerNeuron(){return numInputsPerNeuron;}
 	public Neuron[] getNeurons(){return neurons;}
-} 	
+}

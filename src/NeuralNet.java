@@ -11,16 +11,18 @@ class NeuralNet{
 
 //Construct------------------------------------
 
-	public NeuralNet(int out, int lay, int neu){
-		numInputs = lay;
-		numOutputs = out;
-		
-		//populating the NNet
+	public NeuralNet(int in, int lay, int neu){
+    
+    //populating the NNet
+		numInputs = in;
 		numLayers = lay;
 		neuPerLayer = neu;
+		
 		int tmpNeu = neuPerLayer;
-		int tmpInp = numInputs; 
+		int tmpInp = numInputs;
+		
 		layers = new NeuronLayer[numLayers];
+		
 		for(int i=0; i<numLayers; i++){
 			layers[i] = new NeuronLayer(tmpNeu, tmpInp);
 			tmpNeu--;
@@ -32,12 +34,10 @@ class NeuralNet{
 	 * This function will return the NeuronLayers
 	 */
 	public NeuronLayer[] getLayer() { return layers; }
-
 	public void setMargin(int n) { winLossMargin = n; }
-
 	public void getFitness() { return winLossMargin; }
-
 	public int getNumLayers() { return layers.length; }
+	
 //Actives--------------------------------------
 	
 	//the main thinking process for the neural net, this updates the whole system.

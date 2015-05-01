@@ -48,14 +48,33 @@ public class PopNN {
         for(int n = 0; n < 20; n++) {
             for (int i = 0; i < fitPop[i].getNumLayers(); i++) { 
                 for (int j = 0; j < fitPop[i].layers[j].numNeurons(); j++) {
-                    int[] mask = getMask(); 
+                    int[] mask = getMask(fitPop[i].layers[j].neurons[0].); 
                     Neuron tmp = fitPop[i].layers[j].neurons[0]; 
                     for (int k = 0; k < fitPop[0].layers[0].neurons[0].weightMatrix.length; k++) {
-                        
+
                     }   
                 }
             }
         }
+    }
+
+    public void crossover() {
+            for (int i = 0; i < fitPop.length; i++) { 
+                for (int j = 0; j < fitPop[0].layers.length; j++) {
+                    for (int k = 0; k < fitPop[0].layers[j].neurons.length; k++) {
+                        int[] mask = getMask(fitPop[i].layers[j].neurons[k].weightMatrix.length); 
+                        Neuron tmp = fitPop[i].layers[j].neurons[k]; 
+                        for (int w = 0; w < fitPop[i].layers[j].neurons[k].weightMatrix.length; w++) {
+                            if (mask[w] == 1) {
+                                tmp.weightMatrix[w] = fitPop[0].layers[j].neurons[k].weightMatrix[w]; 
+                            } else {
+                                tmp.weightMatrix[w] = fitPop[i].layers[j].neurons[k].weightMatrix[w]; 
+                            }
+                        }
+                        pop[i+20].layers[j].neurons[k] = tmp; 
+                    }
+                }
+            }
     }
 
     /**

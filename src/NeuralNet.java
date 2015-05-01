@@ -35,7 +35,7 @@ class NeuralNet{
 	 */
 	public NeuronLayer[] getLayer() { return layers; }
 	public void setMargin(int n) { winLossMargin = n; }
-	public void getFitness() { return winLossMargin; }
+	public int getFitness() { return winLossMargin; }
 	public int getNumLayers() { return layers.length; }
 	
 //Actives--------------------------------------

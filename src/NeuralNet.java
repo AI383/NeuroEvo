@@ -43,7 +43,8 @@ class NeuralNet{
 	//the main thinking process for the neural net, this updates the whole system.
 	double[] think(double[] inputs){
 	
-		
+		MancalaGame  game  =  new  MancalaGame("MAX",  "GORDON");
+		game.play();
 		double[] outputs = {0};
 		int weight = 0;
 		double netinput;

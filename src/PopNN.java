@@ -45,15 +45,17 @@ public class PopNN {
      * This function will crossover neural networks to produce offspring
      */ 
     public void crossover() {
-            
-            for (int i = 0; i < fitPop[0].getNumLayers(); i++) { 
-                for (int j = 0; j < fitPop[0].layers[0].numNeurons(); j++) {
+        for(int n = 0; n < 20; n++) {
+            for (int i = 0; i < fitPop[i].getNumLayers(); i++) { 
+                for (int j = 0; j < fitPop[i].layers[j].numNeurons(); j++) {
                     int[] mask = getMask(); 
+                    Neuron tmp = fitPop[i].layers[j].neurons[0]; 
                     for (int k = 0; k < fitPop[0].layers[0].neurons[0].weightMatrix.length; k++) {
-
+                        
                     }   
                 }
             }
+        }
     }
 
     /**

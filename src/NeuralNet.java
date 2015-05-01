@@ -18,11 +18,13 @@ class NeuralNet{
 		//populating the NNet
 		numLayers = lay;
 		neuPerLayer = neu;
+		int tmpNeu = neuPerLayer;
+		int tmpInp = numInputs; 
 		layers = new NeuronLayer[numLayers];
 		for(int i=0; i<numLayers; i++){
-			layers[i] = new NeuronLayer(neuPerLayer, numInputs);
-			neuPerLayer--;
-			numInputs--;
+			layers[i] = new NeuronLayer(tmpNeu, tmpInp);
+			tmpNeu--;
+			tmpInp--;
 		}
 	}
 

@@ -37,14 +37,14 @@ class NeuralNet{
 	  	if (inputs.length != numInputs)
 	  		return outputs;
 	
-	  	//for each layer in the neural net, 
+	  	//for each layer in the neural net,
 	  	for (int i=0; i<numLayers; i++){
 			
 	  		//if the layer is not the first one, the input array is the output of the last layer.
 			if ( i > 0 ){inputs = outputs;}
 		   	weight = 0;
 
-		   	//for each neuron in the layer at hand, 
+		   	//for each neuron in the layer at hand,
 		    for (int j=0; j<layers[i].numNeurons()-1; j++){
 
 				netinput = 0;
@@ -52,38 +52,15 @@ class NeuralNet{
 
 				//for each weight in the weight matrix of the neuron at hand, add the inputs to the net input
 				for (int k=0; k<numInputs - 2; k++){
-					netinput += layers[i].neurons[j].weightMatrix[k] * inputs[weight++];	
+					netinput += layers[i].neurons[j].weightMatrix[k] * inputs[weight++];
 				}
 
 				//add the bias to the netinput.
-				netinput += layers[i].neurons[j].weightMatrix[numInputs-1];// * CParams::dBias;
-				
-				//put the normalized version of the activation result into the output array
-				//outputs.push_back(Sigmoid(netinput, CParams::dActivationResponse));
+				netinput += layers[i].neurons[j].weightMatrix[numInputs-1];
 				weight = 0;
 			}
 		}
 
 		return outputs;
-		//inline double Sigmoid(double activation, double response);
 	}
-
-//----------------------------------------------------
-	
-	//boolean finishedLearning (){ }
-	//void CreateNet(){}
-	//ArrayList<double> getWeights(){}
-	//int getNumberOfWeights(){}
-	//void PutWeights(ArrayList<double> weights){}
-	//String getElapsedTime (){ } 
-	//int getLearningCycle (){ } 
-	//double getLearningRate (){ } 
-	//int getMaxLearningCycles (){ } 
-	//void resetTime (){ } 
-	//void setDisplayStep ( int displayStep ){ } 
-
-	//Sets the learning rate of a neural net. 
-	//void setLearningRate ( double learningRate ){ } 
-	//void setMaxLearningCycles ( int maxLearningCycles ){ }
-
-}  
+}

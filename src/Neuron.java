@@ -15,12 +15,10 @@ public class Neuron{
 			weightMatrix[i] = r.nextDouble();
 		}
 		DisplayPanel.str.add("      Neuron: "+weightMatrix.toString());
-	}	
+	}
 
 //Actives----------------------------------------------
 
-	//logit, log(p/(1-p)) for sigmoid normalization
-	double activateSigmoid (double p){return Math.log(p/(1-p));}
 	void setInput(int index, double input){weightMatrix[index] = input;}
 	int numInputs(){return weightMatrix.length;}
 	double[] getInputs(){return weightMatrix;}
@@ -29,7 +27,7 @@ public class Neuron{
 	double getOutput(){
 		for (int i=0; i<numInputs(); i++){
 			output += weightMatrix[i];
-		} 
+		}
 		output = output / numInputs();
 		return output;
 	}

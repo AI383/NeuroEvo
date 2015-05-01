@@ -4,7 +4,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-public class DisplayFrame{			
+public class DisplayFrame{
 	public static void main(String[] args){
 		
 		JFrame j;
@@ -14,9 +14,9 @@ public class DisplayFrame{
 		j = new JFrame();
 		d = new DisplayPanel();
 		d.setPreferredSize(new Dimension(400, 300));
-        	j.add(d);
+    j.add(d);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        j.setTitle("NeuroEvo");  
+	  j.setTitle("NeuroEvo");
 		j.pack();
 		j.setVisible(true);
 	}

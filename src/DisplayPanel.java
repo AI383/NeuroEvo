@@ -85,13 +85,13 @@ public class DisplayPanel extends JPanel implements Runnable, ActionListener{
 	    iter++;
 	    repaint();
 		str.add(iter+": "+"Hello");
-		
-		n = new NeuralNet(4, 1, 5, 7);
+		//int in, int out, int layers, int neuronsPerLayer){
+		n = new NeuralNet(1, 5, 5);
 		
 		double[] a = {1};
 		for(int i=0; i<100; i++){
 			//repaint();
-			n.update(a);
+			n.think(a);
 		}
 	}
 }

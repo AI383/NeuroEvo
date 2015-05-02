@@ -4,7 +4,7 @@ public class PopNN {
 	NeuralNet[] fitPop; 
 
 	private static final double crossRate = 0.5;
-    private static final double mutationRate = 0.02;
+    private static final double mutationRate = 0.03;
     private static final int selectRate = 5;
     private static final int mutationFactor = 10;
 
@@ -38,30 +38,32 @@ public class PopNN {
      * This function will mutate a weight in Neural Network Neuron weight matrix. 
      */
     public void mutation() {
+        for (int i = 0; i < pop.length; i++) { 
+                for (int j = 0; j < pop[i].layers.length; j++) {
+                    for (int k = 0; k < pop[i].layers[j].neurons.length; k++) {
+                        for (int w = 0; w < pop[i].layers[j].neurons[k].weightMatrix.length; w++) {
+                            double tmp = Math.random()
+                            if((tmp <= mutationRate) && (tmp > .02)) {
+                                pop[i].layers[j].neurons[k].weightMatrix[w] += (pop[i].layers[j].neurons[k].weightMatrix[w]*mutationRate);
+                            } else if (tmp <= mutationRate){
+                                pop[i].layers[j].neurons[k].weightMatrix[w] -= (pop[i].layers[j].neurons[k].weightMatrix[w]*mutationRate);
+                            }    
 
+                        }
+                    }
+                }
+            }
     }
 
     /** 
      * This function will crossover neural networks to produce offspring
      */ 
-    public void crossover() {
-        for(int n = 0; n < 20; n++) {
-            for (int i = 0; i < fitPop[i].getNumLayers(); i++) { 
-                for (int j = 0; j < fitPop[i].layers[j].numNeurons(); j++) {
-                    int[] mask = getMask(fitPop[i].layers[j].neurons[0].); 
-                    Neuron tmp = fitPop[i].layers[j].neurons[0]; 
-                    for (int k = 0; k < fitPop[0].layers[0].neurons[0].weightMatrix.length; k++) {
-
-                    }   
-                }
-            }
-        }
-    }
+   
 
     public void crossover() {
             for (int i = 0; i < fitPop.length; i++) { 
-                for (int j = 0; j < fitPop[0].layers.length; j++) {
-                    for (int k = 0; k < fitPop[0].layers[j].neurons.length; k++) {
+                for (int j = 0; j < fitPop[i].layers.length; j++) {
+                    for (int k = 0; k < fitPop[i].layers[j].neurons.length; k++) {
                         int[] mask = getMask(fitPop[i].layers[j].neurons[k].weightMatrix.length); 
                         Neuron tmp = fitPop[i].layers[j].neurons[k]; 
                         for (int w = 0; w < fitPop[i].layers[j].neurons[k].weightMatrix.length; w++) {

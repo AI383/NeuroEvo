@@ -7,8 +7,8 @@ public class NeuronLayer{
 
 //Construct--------------------------------------------
 
-	public NeuronLayer(int neurons, int inputsPerNeuron){
-		numNeurons = neurons;
+	public NeuronLayer(int neu, int inputsPerNeuron){
+		numNeurons = neu;
 		numInputsPerNeuron = inputsPerNeuron;
 		
 		//populating the layer

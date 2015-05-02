@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 class NeuralNet{
@@ -44,7 +45,12 @@ class NeuralNet{
 	double[] think(double[] inputs){
 	
 	  MancalaGame  game  =  new  MancalaGame("MAX",  "GORDON");
-		game.play();
+		try {
+			game.play();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		double[] outputs = {0};
 		int weight = 0;

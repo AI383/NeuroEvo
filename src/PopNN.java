@@ -19,7 +19,7 @@ public class PopNN {
 
    public void initialize() { 
    	for (int i =0; i < pop.length; i++) {
-   		NeuralNet n = new NeuralNet( 1, 5, 5); 
+   		NeuralNet n = new NeuralNet( 5, 5, 5); 
    		setNum(n, i); 
    	}
    }
@@ -42,7 +42,7 @@ public class PopNN {
                   for (int j = 0; j < pop[i].layers.length; j++) {
                     for (int k = 0; k < pop[i].layers[j].neurons.length; k++) {
                         for (int w = 0; w < pop[i].layers[j].neurons[k].weightMatrix.length; w++) {
-                            double tmp = Math.random()
+                            double tmp = Math.random();
                             if((tmp <= mutationRate) && (tmp > .02)) {
                                 pop[i].layers[j].neurons[k].weightMatrix[w] += (pop[i].layers[j].neurons[k].weightMatrix[w]*mutationRate);
                             } else if (tmp <= mutationRate){
@@ -97,11 +97,18 @@ public class PopNN {
        }
    }
 
+   public void swap(int x, int y) {
+      NeuralNet tmp = pop[x]; 
+      pop[x] = pop[y]; 
+      pop[y] = tmp;
+   }
+
    public int[] getMask(int n) {
        int[] mask = new int[n]; 
        for(int i=0; i<n; i++) {
            if(Math.random() > .5) mask[i] = 1; 
            else mask[i] = 0; 
        }
+       return mask; 
    }
 }

@@ -4,7 +4,7 @@ public class PopNN {
 	NeuralNet[] fitPop; 
 
 	private static final double crossRate = 0.5;
-   private static final double mutationRate = 0.02;
+   private static final double mutationRate = 0.03;
    private static final int selectRate = 5;
    private static final int mutationFactor = 10;
 

@@ -4,12 +4,12 @@ public class GA {
 	
     public static void main(String[] args) {
 
-    	Population pop = new Population(50);
+    	PopNN pop = new Population(40);
     	int gen = 0;
     	int fit = 0;
     	pop.initialize();
-    	
-        while (fit < 10000000) {
+    	int cntGen = 0; 
+        while (cntGen < 10000000) {
         	gen++;
             pop.selection(pop);
             pop.crossover();
@@ -19,10 +19,6 @@ public class GA {
             
             System.out.println("Gen: " + gen + " Fittest: " + fit);
         }
-        System.out.println("Found solution!");
-        System.out.println("Generation: " + gen);
-        System.out.println("Genes:");
-        System.out.println("Invest "+pop.getFittest().getx()+ " in company X.");
-        System.out.println("Invest "+pop.getFittest().gety()+ " in company Y.");
+        
     }
 }

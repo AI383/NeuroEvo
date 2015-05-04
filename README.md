@@ -1,5 +1,7 @@
 # NeuroEvo
 
+This program can be run by compiling and running DisplayFrame.java in the src directory.
+
 /* Contributors: Pat Beagan, Corey Waple */ 
 Repo for the neuroevo agent
 
